@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Option Tree</title>
+    <!-- Fill out -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Option Tree</h1>
+      <p class="note">
+        <!-- Fill out -->
+        Buttons are intentionally left empty so you can label them. Click a top
+        button to reveal the next set.
+      </p>
+
+      <div id="row1" class="row">
+        <div
+          id="node-A"
+          class="btn node"
+          role="button"
+          tabindex="0"
+          data-key="A"
+          aria-label="Top option A"
+        >
+          <span class="label">A</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-B"
+          class="btn node"
+          role="button"
+          tabindex="0"
+          data-key="B"
+          aria-label="Top option B"
+        >
+          <span class="label">B</span
+          ><!-- Fill out -->
+        </div>
+      </div>
+
+      <div id="row2" class="row hidden" aria-live="polite">
+        <!-- four distinct second-level nodes (two for branch A, two for branch B). Only the branch matching the top selection will be shown. -->
+        <div
+          id="node-x"
+          class="btn node node-2"
+          role="button"
+          tabindex="0"
+          data-branch="A"
+          data-value="x"
+          aria-label="second x"
+        >
+          <span class="label">x</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-y"
+          class="btn node node-2"
+          role="button"
+          tabindex="0"
+          data-branch="A"
+          data-value="y"
+          aria-label="second y"
+        >
+          <span class="label">y</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-z"
+          class="btn node node-2 hidden"
+          role="button"
+          tabindex="0"
+          data-branch="B"
+          data-value="z"
+          aria-label="second z"
+        >
+          <span class="label">z</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-v"
+          class="btn node node-2 hidden"
+          role="button"
+          tabindex="0"
+          data-branch="B"
+          data-value="v"
+          aria-label="second v"
+        >
+          <span class="label">v</span
+          ><!-- Fill out -->
+        </div>
+      </div>
+
+      <div id="row3" class="row hidden" aria-live="polite">
+        <!-- eight distinct third-level nodes. Only two will be shown depending on the selected second-level node. -->
+        <div
+          id="node-1"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="x"
+          data-value="1"
+        >
+          <span class="label">1</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-2"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="x"
+          data-value="2"
+        >
+          <span class="label">2</span
+          ><!-- Fill out -->
+        </div>
+
+        <div
+          id="node-3"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="y"
+          data-value="3"
+        >
+          <span class="label">3</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-4"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="y"
+          data-value="4"
+        >
+          <span class="label">4</span
+          ><!-- Fill out -->
+        </div>
+
+        <div
+          id="node-5"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="z"
+          data-value="5"
+        >
+          <span class="label">5</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-6"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="z"
+          data-value="6"
+        >
+          <span class="label">6</span
+          ><!-- Fill out -->
+        </div>
+
+        <div
+          id="node-7"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="v"
+          data-value="7"
+        >
+          <span class="label">7</span
+          ><!-- Fill out -->
+        </div>
+        <div
+          id="node-8"
+          class="btn node node-3 hidden"
+          role="button"
+          tabindex="0"
+          data-parent="v"
+          data-value="8"
+        >
+          <span class="label">8</span
+          ><!-- Fill out -->
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="reset" class="control">Reset</button>
+      </div>
+
+      <div id="log" class="log" aria-live="polite"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
