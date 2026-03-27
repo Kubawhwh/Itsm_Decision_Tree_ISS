@@ -37,15 +37,41 @@ The labels for each of the 14 decision nodes can be edited directly in the `inde
   - It shows and hides the appropriate nodes based on user selections.
   - It updates the log with the current selection path.
 
-## How to Run
+## Prerequisites
 
-To run the application, you can either:
+To run the application with the backend server for logging selections, you will need to have Node.js and npm installed. You can download them from the official website:
 
-1.  Open the `index.html` file directly in your web browser.
-2.  Run a local web server from the project directory. This is a better approach for development. If you have Python installed, you can use this command in your terminal (like PowerShell or Command Prompt):
+- [Node.js](https://nodejs.org/) (npm is included with the Node.js installation)
+
+## How to Run with Data Logging
+
+1.  **Install Dependencies:**
+    Open your terminal in the project directory and run:
 
     ```sh
-    python -m http.server
+    npm install
     ```
 
-    Then, open your browser and go to `http://localhost:8000`.
+2.  **Start the Server:**
+    After the installation is complete, start the server:
+
+    ```sh
+    npm start
+    ```
+
+3.  **View the App:**
+    Open your web browser and navigate to `http://localhost:3000`.
+
+## Accessing the Outcomes
+
+Every time a final selection is made in the decision tree, the choice will be sent to the server and saved as a new line in a file named `selections.log` in your project directory.
+
+Each line in the log will contain a timestamp followed by a JSON object representing the selection path.
+
+**Example Log Entry:**
+
+```
+2026-03-27T10:00:00.000Z: {"top":"A","second":"x","final":"1"}
+```
+
+If you just want to run the front-end without the data logging, you can still open the `index.html` file directly in your browser.

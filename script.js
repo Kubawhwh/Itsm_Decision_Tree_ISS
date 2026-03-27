@@ -69,8 +69,25 @@ thirdNodes.forEach((t) => {
         ) || {}
       ).dataset?.value || "";
     writeLog(topKey, second, final);
+    saveSelection({ top: topKey, second: second, final: final });
   });
 });
+
+function saveSelection(selection) {
+  fetch("/save-selection", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(selection),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.error("Failed to save selection.");
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
 
 resetBtn.addEventListener("click", () => {
   // hide second + third level nodes
