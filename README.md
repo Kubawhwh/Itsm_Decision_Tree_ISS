@@ -75,12 +75,3 @@ git add public/script.js
 git commit -m "Update thirdMap: add X.Y options"
 git push origin Secondary
 ```
-
-If you want me to
-
-- Convert `thirdMap` to a separate JSON file (`public/options.json`) to make editing easier.
-- Persist submissions to a JSON file so entries survive server restarts.
-- Replace the default fallback with an explicit disabled flow for empty mappings.
-
-Tell me which of the above you'd like next and I'll implement it on `Secondary`.
-Secondary workspace
