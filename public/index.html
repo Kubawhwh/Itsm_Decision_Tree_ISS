@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services (SSR Categories)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Services (SSR Categories)</h1>
+
+      <section id="wizard" class="wizard">
+        <div class="step" id="step1">
+          <button class="btn primary" id="btn-step1">Choose category</button>
+          <div class="menu" id="menu-step1"></div>
+        </div>
+
+        <div class="step hidden" id="step2">
+          <button class="btn" id="btn-step2">Choose sub-category</button>
+          <div class="menu" id="menu-step2"></div>
+        </div>
+
+        <div class="step hidden" id="step3">
+          <button class="btn" id="btn-step3">Choose detail</button>
+          <div class="menu" id="menu-step3"></div>
+        </div>
+
+        <div class="step hidden" id="step4">
+          <button class="btn send" id="btn-send">Send</button>
+        </div>
+      </section>
+
+      <section id="result" class="result">
+        <h2>Recent submissions</h2>
+        <ul id="submissionsList" class="submissions"></ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
