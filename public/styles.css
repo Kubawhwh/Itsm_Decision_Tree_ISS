@@ -21,7 +21,8 @@ h1 {
 }
 .wizard {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* This forces the main buttons to stack vertically */
+  align-items: flex-start; /* This keeps them floated to the left */
   gap: 12px;
   margin-bottom: 18px;
 }
@@ -48,6 +49,13 @@ h1 {
   color: #fff;
   border-color: #077b35;
 }
+.category-desc {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+  max-width: 450px;
+  line-height: 1.4;
+}
 .menu {
   position: absolute;
   top: 48px;
@@ -65,13 +73,17 @@ h1 {
   display: block;
 }
 .menu button {
+  /* Force vertical stack: each button occupies its own row */
   display: block;
   width: 100%;
+  box-sizing: border-box;
+  margin: 6px 0; /* vertical spacing between buttons */
   text-align: left;
-  padding: 8px;
-  border: none;
-  background: transparent;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  background: #fff;
   cursor: pointer;
+  border-radius: 6px;
 }
 .menu button:hover {
   background: #f0f4ff;
@@ -94,4 +106,15 @@ h1 {
 .small {
   font-size: 12px;
   color: #666;
+}
+
+/* Strong override: ensure menu buttons are always vertical and cannot be overridden */
+#menu-step1 button,
+#menu-step2 button,
+#menu-step3 button,
+.menu button {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 6px 0 !important;
 }

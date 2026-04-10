@@ -12,17 +12,20 @@
 
       <section id="wizard" class="wizard">
         <div class="step" id="step1">
-          <button class="btn primary" id="btn-step1">Choose category</button>
+          <div style="display: flex; align-items: center; gap: 15px">
+            <button class="btn primary" id="btn-step1">Choose category</button>
+            <div id="category-desc" class="category-desc"></div>
+          </div>
           <div class="menu" id="menu-step1"></div>
         </div>
 
         <div class="step hidden" id="step2">
-          <button class="btn" id="btn-step2">Choose sub-category</button>
+          <button class="btn" id="btn-step2">Choose product</button>
           <div class="menu" id="menu-step2"></div>
         </div>
 
         <div class="step hidden" id="step3">
-          <button class="btn" id="btn-step3">Choose detail</button>
+          <button class="btn" id="btn-step3">Choose Task</button>
           <div class="menu" id="menu-step3"></div>
         </div>
 

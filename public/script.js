@@ -8,11 +8,11 @@ const topLevel = [
   "Facility & Food Applications",
   "Financial Applications",
   "Global Identity & Access Management",
-  "Help me to find right category",
   "Information Security & Compliance, Risk Management and Exceptions, Certificates",
   "Microsoft 365",
   "Network, Infrastructure & Cloud Operations",
   "Process and Project Tools",
+  "Help me to find right category",
 ];
 
 // Mapping from top-level index (0-based) to sub-options
@@ -52,8 +52,8 @@ const subMap = {
     "IAM - Employee & External Identity Management (User Account Management)",
     "IAM - Privileged Identity Management (Admin Account Management)",
   ],
-  8: ["Help me to find right category"],
-  9: [
+  // moved: previously index 9 -> now 8
+  8: [
     "Cybersecurity Risk & Compliance",
     "GDS – Access Policies (MFA/CA)",
     "OneTrust",
@@ -61,15 +61,18 @@ const subMap = {
     "Public & Private Certificates",
     "Security Operations",
   ],
-  10: ["IT Admin Tool", "Microsoft 365"],
-  11: [
+  // moved: previously index 10 -> now 9
+  9: ["IT Admin Tool", "Microsoft 365"],
+  // moved: previously index 11 -> now 10
+  10: [
     "DevSecOps (landing zones, pipelines, K8S)",
     "GDS – Core Services (DNS/DHCP/DC)",
     "GDS – Identity (App & Service Objects)",
     "Global Cloud Operations",
     "Global Firewall & Network Operations",
   ],
-  12: [
+  // moved: previously index 12 -> now 11
+  11: [
     "Azure DevOps",
     "Jira4Corp",
     "Jira4Fin",
@@ -78,6 +81,8 @@ const subMap = {
     "JiraDatacenter",
     "Projects@ISS & Time for Teams",
   ],
+  // moved: previously index 8 (Help) -> now at the end index 12
+  12: ["Help me to find right category"],
 };
 
 // Third-level generic options (inferred)
@@ -405,11 +410,8 @@ const thirdMap = {
     "T2 Privileged Account - Modify",
   ],
 
-  // 9. Help me to find right category (empty)
-  "8.0": [],
-
-  // 10. Information Security & Compliance...
-  "9.0": [
+  // 9. (was 10) Information Security & Compliance...
+  "8.0": [
     "Cyber Security Architect Consultation",
     "Document Approval",
     "Information Security Compliance Consultation",
@@ -418,13 +420,13 @@ const thirdMap = {
     "Risk Consultation",
     "Support with Customer Assessment",
   ],
-  9.1: [
+  8.1: [
     "Conditional Access Exception - Add / Modify",
     "Conditional Access Exception (Frontline Workforce) - Add / Modify",
     "MFA - Reset / Unblock",
     "MFA Exception - Add",
   ],
-  9.2: [
+  8.2: [
     "Generic Request OneTrust",
     "Modification of existing IT Asset / Supplier",
     "New IT Asset / Supplier creation",
@@ -433,7 +435,7 @@ const thirdMap = {
     "OneTrust - Change Role",
     "OneTrust - Revoke access",
   ],
-  9.3: [
+  8.3: [
     "Document Approval - Policy Hub",
     "Exception Approval",
     "Generic Request Policy Hub",
@@ -441,15 +443,15 @@ const thirdMap = {
     "Policy Hub - Modify user",
     "Policy Hub - Remove user",
   ],
-  9.4: [
+  8.4: [
     "Generic Request Public and Private Certificates",
     "Request New Certificate/Key",
   ],
-  9.5: ["Generic Request Security Operations", "Security Support Request"],
+  8.5: ["Generic Request Security Operations", "Security Support Request"],
 
-  // 11. Microsoft 365
-  "10.0": ["Generic Request IT Admin Tool"],
-  10.1: [
+  // 10. (was 11) Microsoft 365
+  "9.0": ["Generic Request IT Admin Tool"],
+  9.1: [
     "Bulk License Changes",
     "Conversion to Shared / User mailbox",
     "Generic Request Collaboration Services",
@@ -457,12 +459,12 @@ const thirdMap = {
     "Request access to personal user data",
   ],
 
-  // 12. Network, Infrastructure & Cloud Operations
-  "11.0": [
+  // 11. (was 12) Network, Infrastructure & Cloud Operations
+  "10.0": [
     "DevSecOps - Onboarding",
     "Landing zones / Subscriptions, pipelines and K8S Request",
   ],
-  11.1: [
+  10.1: [
     "AD One-Way Trust - Configure",
     "DFS Namespace - Create / Modify",
     "DHCP Authorization - Add / Remove",
@@ -478,7 +480,7 @@ const thirdMap = {
     "Global Directory Services - Core Services - General Inquiry",
     "Network Site/Subnet - Add / Modify / Delete",
   ],
-  11.2: [
+  10.2: [
     "gMSA - Create / Delete",
     "Application Registration - Modify",
     "Application Registration - New",
@@ -487,21 +489,21 @@ const thirdMap = {
     "Global Directory Services - Identity - General Inquiry",
     "OU Group Policy / WMI Filter - Manage",
   ],
-  11.3: ["Generic Request Global Cloud Operations"],
-  11.4: [
+  10.3: ["Generic Request Global Cloud Operations"],
+  10.4: [
     "Assign a new network",
     "Edit an existing network",
     "Generic Request Network",
     "Release an IP Range",
   ],
 
-  // 13. Process and Project Tools
-  "12.0": ["Azure DevOps Generic inquiry"],
-  "12.1": [],
-  "12.2": [],
-  "12.3": [],
-  "12.4": [],
-  12.5: [
+  // 12. (was 13) Process and Project Tools
+  "11.0": ["Azure DevOps Generic inquiry"],
+  11.1: [],
+  11.2: [],
+  11.3: [],
+  11.4: [],
+  11.5: [
     "Approver setup",
     "Delegate access",
     "Generic Request Projects@ISS & Time for Teams",
@@ -514,6 +516,36 @@ const thirdMap = {
     "Time for Teams - Add User",
     "Time for Teams - Remove User",
   ],
+
+  // 13. Help (moved to the end) - empty
+  "12.0": [],
+};
+
+const categoryDescriptions = {
+  "Global Identity & Access Management":
+    "Accounts for employees and contractors (standard and privileged), global access management for employees and customers, application onboarding to IAM.",
+  "Network, Infrastructure & Cloud Operations":
+    "Network and firewalls, global cloud operations (Azure), domain services (DNS, DHCP, DC, groups, trusts), app registration (SSO).",
+  "Automation & Integration Services":
+    "Automation, Power Platform, and integration services.",
+  "Microsoft 365":
+    "Core Office applications (Word, Excel, PowerPoint, Outlook, OneNote) with cloud services like OneDrive, SharePoint, and Microsoft Teams.",
+  "Common Intranet Applications":
+    "MyISS, MyLearning, MyVoice, People@ISS, Safe@ISS.",
+  "Information Security & Compliance, Risk Management and Exceptions, Certificates":
+    "Risk and security consultancies, MFA/CA exceptions, certificates, OneTrust, and Policy Hub.",
+  "Data Management, Analytics":
+    "Finance BI, Insight@ISS, Flexera, sustainability: carbon management and energy management.",
+  "Computers, Mobiles, Virtual Desktops, Messaging":
+    "Azure VDI, client management, enterprise voice solutions, global endpoint management, mobile management, SMTP services.",
+  "Commercial IT Applications":
+    "Creative, content, and relationship management platforms, ISS portals.",
+  "Financial Applications": "Aico (R2R), NAV@ISS, P2P@ISS, Coupa UK&I.",
+  "Process and Project Tools":
+    "Jira Cloud and Confluence, Jira Datacenter, Azure DevOps, Projects@ISS, and Time for Teams.",
+  "Facility & Food Applications":
+    "Convenie/Wex, FMS BluePrint, Internet of Things (IoT), Order@ISS, OneCost (SIM), Pure Space App, Sign In Solution (Pronestor).",
+  "Help me to find right category": "",
 };
 
 // DOM refs
@@ -528,6 +560,7 @@ const step2 = document.getElementById("step2");
 const step3 = document.getElementById("step3");
 const step4 = document.getElementById("step4");
 const submissionsList = document.getElementById("submissionsList");
+const categoryDesc = document.getElementById("category-desc");
 
 let chosen = { step1: null, step2: null, step3: null };
 
@@ -536,6 +569,11 @@ function buildMenu(container, items, onSelect) {
   items.forEach((item, i) => {
     const b = document.createElement("button");
     b.textContent = item;
+    // Ensure buttons are forced to stack vertically even if CSS is cached/overridden
+    b.style.display = "block";
+    b.style.width = "100%";
+    b.style.boxSizing = "border-box";
+    b.style.margin = "6px 0";
     b.addEventListener("click", () => {
       onSelect(item, i);
       container.classList.remove("open");
@@ -548,13 +586,14 @@ function buildMenu(container, items, onSelect) {
 buildMenu(menu1, topLevel, (item, topIdx) => {
   chosen.step1 = item;
   btnStep1.textContent = `Category: ${item}`;
+  categoryDesc.textContent = categoryDescriptions[item] || "";
 
   // Prepare sub-options based on index
   const idx = topIdx;
   const subs = subMap[idx] || ["Other"];
   buildMenu(menu2, subs, (s, subIdx) => {
     chosen.step2 = s;
-    btnStep2.textContent = `Sub: ${s}`;
+    btnStep2.textContent = `Product: ${s}`;
     // Show step3
     step3.classList.remove("hidden");
 
@@ -564,7 +603,7 @@ buildMenu(menu1, topLevel, (item, topIdx) => {
       thirdMap[key] && thirdMap[key].length ? thirdMap[key] : thirdLevelDefault;
     buildMenu(menu3, thirdOptions, (t) => {
       chosen.step3 = t;
-      btnStep3.textContent = `Detail: ${t}`;
+      btnStep3.textContent = `Task: ${t}`;
       // Show send
       step4.classList.remove("hidden");
     });
@@ -596,8 +635,9 @@ btnSend.addEventListener("click", async () => {
       // reset UI to start again
       chosen = { step1: null, step2: null, step3: null };
       btnStep1.textContent = "Choose category";
-      btnStep2.textContent = "Choose sub-category";
-      btnStep3.textContent = "Choose detail";
+      categoryDesc.textContent = "";
+      btnStep2.textContent = "Choose product";
+      btnStep3.textContent = "Choose Task";
       step2.classList.add("hidden");
       step3.classList.add("hidden");
       step4.classList.add("hidden");
